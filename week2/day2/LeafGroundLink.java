@@ -1,5 +1,8 @@
 package week2.day2;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
@@ -11,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LeafGroundLink {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver = new ChromeDriver();
@@ -51,7 +54,6 @@ public class LeafGroundLink {
 		{
 			System.out.println(url +" - "+ "This is a valid Link");
 		}
-		
 		
 		Thread.sleep(2000);
 		
