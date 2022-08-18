@@ -11,11 +11,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class EditLead {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// Launch URL
 		WebDriverManager.chromedriver().setup();
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("http://leaftaps.com/opentaps");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 		// MAXIMIZE THE WINDOW
 		driver.manage().window().maximize();
@@ -42,7 +43,7 @@ public class EditLead {
 		// Click Find leads button
 		driver.findElement(By.xpath("//button[text()='Find Leads']")).click();
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		Thread.sleep(2000);
 
 		// Click on first resulting lead
 		driver.findElement(By.xpath("(//table)[21]/tbody/tr[1]/td[1]//a")).click();
