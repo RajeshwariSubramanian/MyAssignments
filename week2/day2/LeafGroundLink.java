@@ -35,21 +35,24 @@ public class LeafGroundLink {
 		
 		//Broken link
 		WebElement elementClickURL=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[1]/div[3]/div/div/a"));
-		elementClickURL.click();
+		String url=elementClickURL.getAttribute("href");
 		Thread.sleep(3000);
 		
-		WebElement elementGetStatusCode=driver.findElement(By.xpath("//table/tbody/tr[2]/td"));
-		String StatusText=elementGetStatusCode.getText();
-		
-		WebElement elementGetMessage=driver.findElement(By.xpath("//table/tbody/tr[3]/td"));
-		
-		
-		if(StatusText.equals("404"))
+		URL link=new URL(url);
+		HttpURLConnection httpConnection=(HttpURLConnection) link.openConnection();
+		Thread.sleep(2000);
+		httpConnection.connect();
+		int responseCode= httpConnection.getResponseCode();
+		if(responseCode>400)
 		{
-			System.out.println("This is a Broken Link:" +StatusText +elementGetMessage.getText());
+			System.out.println(url +" - "+ "This is a Broken Link");
+		}
+		else
+		{
+			System.out.println(url +" - "+ "This is a valid Link");
 		}
 		
-		driver.navigate().back();
+		
 		Thread.sleep(2000);
 		
 		//Duplicate Link
