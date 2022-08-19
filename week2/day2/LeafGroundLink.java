@@ -23,7 +23,7 @@ public class LeafGroundLink {
 		driver.manage().window().maximize();
 		
 		//Take me to dashboard		
-		WebElement elementGoDashboard=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[1]/div[1]/div/div/a"));
+		WebElement elementGoDashboard=driver.findElement(By.xpath("//form/div/div[1]/div[1]/div/div/a"));
 		elementGoDashboard.click();
 		Thread.sleep(2000);
 		
@@ -31,13 +31,13 @@ public class LeafGroundLink {
 		Thread.sleep(2000);
 		
 		//Find my destination		
-		WebElement elementFindURL=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[1]/div[2]/div/div/a"));
+		WebElement elementFindURL=driver.findElement(By.xpath("//form/div/div[1]/div[2]/div/div/a"));
 		System.out.println("The URL of the Page:" +elementFindURL.getAttribute("href"));
 		
 		Thread.sleep(2000);
 		
 		//Broken link
-		WebElement elementClickURL=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[1]/div[3]/div/div/a"));
+		WebElement elementClickURL=driver.findElement(By.xpath("//form/div/div[1]/div[3]/div/div/a"));
 		String url=elementClickURL.getAttribute("href");
 		Thread.sleep(3000);
 		
@@ -58,12 +58,12 @@ public class LeafGroundLink {
 		Thread.sleep(2000);
 		
 		//Duplicate Link
-		WebElement elementGoDashboard1=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[1]/div[1]/div/div/a"));
-		WebElement elementDuplicateLink=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[2]/div[1]/div/div/a"));
-		String LinkDuplicateCheck1=elementGoDashboard1.getAttribute("href");
-		String LinkDuplicateCheck2=elementDuplicateLink.getAttribute("href");
+		WebElement elementGoDashboard1=driver.findElement(By.xpath("//form/div/div[1]/div[1]/div/div/a"));
+		WebElement elementDuplicateLink=driver.findElement(By.xpath("//form/div/div[2]/div[1]/div/div/a"));
+		String LinkOriginal=elementGoDashboard1.getAttribute("href");
+		String LinkDuplicate=elementDuplicateLink.getAttribute("href");
 	
-		if(LinkDuplicateCheck2.equals(LinkDuplicateCheck1))
+		if(LinkOriginal.equals(LinkDuplicate))
 				{
 			System.out.println("The Link is Duplicate");
 				}
@@ -76,7 +76,7 @@ public class LeafGroundLink {
 	    Thread.sleep(2000);
 	    
 	    //Count Layout Links
-	    WebElement elementCountLayoutLinks=driver.findElement(By.xpath("//form[@id='j_idt87']/div/div[2]/div[3]/div/div/a"));
+	    WebElement elementCountLayoutLinks=driver.findElement(By.xpath("//form/div/div[2]/div[3]/div/div/a"));
 	    elementCountLayoutLinks.click();	    
 	    Thread.sleep(3000);
 	    List< WebElement> elementCountLayout=driver.findElements(By.tagName("a"));
