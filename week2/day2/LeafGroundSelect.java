@@ -28,22 +28,24 @@ public class LeafGroundSelect {
 		AutomationToolDD.selectByVisibleText("Selenium");
 
 		// Choose your preferred country.
-		
-		  WebElement elementCountrySelect=driver.findElement(By.xpath("//div[@id='j_idt87:country']/div[3]/span"));
-		  elementCountrySelect.click();		 
-		 WebElement elementInput=driver.findElement(By.xpath("//li[@id='j_idt87:country_3']"));
+		Thread.sleep(2000);
+		  WebElement elementCountrySelect=driver.findElement(By.xpath("//form/div/div[1]/div[2]/div//div[3]/span"));
+		  elementCountrySelect.click();		
+		  Thread.sleep(2000);
+		 WebElement elementInput=driver.findElement(By.xpath("//body/div[5]/div/ul/li[4]"));
 		 elementInput.click();
 		 
+		 Thread.sleep(2000);
 		// Confirm Cities belongs to Country is loaded  
-		  WebElement elementInputTextBox=driver.findElement(By.xpath("//input[@id='j_idt87:country_focus']"));
-		  String CountryInput= elementInputTextBox.getAttribute("aria-activedescendant");
-		  
-		  WebElement elementCity=driver.findElement(By.xpath("//li[@id='j_idt87:country_3']"));
-		  String CountryCheck=elementCity.getAttribute("id");
-			
-		  if(CountryInput.equals(CountryCheck))
+				  
+		  WebElement elementCity=driver.findElement(By.xpath("//form/div/div[1]/div[2]/div//label"));
+		  String CountryCheck=elementCity.getText();
+			System.out.println(CountryCheck);
+			 Thread.sleep(2000);
+			 
+		  if(CountryCheck.equals("India"))
 		  {
-			  WebElement elementCities = driver.findElement(By.xpath("//select[@id='j_idt87:city_input']"));
+			  WebElement elementCities = driver.findElement(By.xpath("//form//div[1]/div[3]//div[2]/select"));
 			  Select CitiesDD = new Select(elementCities);
 			  List<WebElement> e = CitiesDD.getOptions();
 			  Thread.sleep(3000);
@@ -58,29 +60,29 @@ public class LeafGroundSelect {
 		  }
 			
 		  //Choose the Course			
-		  WebElement elementCourse = driver.findElement(By.xpath("//div[@id='j_idt87:auto-complete']/button"));
+		  WebElement elementCourse = driver.findElement(By.xpath("//div[2]/div[1]/div/button/span[1]"));
 		  elementCourse.click();
-		
-		  WebElement elementCourseSelect = driver.findElement(By.xpath("//span[@id='j_idt87:auto-complete_panel']/ul/li[3]"));
+		  Thread.sleep(2000);
+		  WebElement elementCourseSelect = driver.findElement(By.xpath("//span/ul/li[3]"));
 		  elementCourseSelect.click();
 		  
 		  Thread.sleep(2000);
 		  
 		 //Choose language
-		 WebElement elementLanguage = driver.findElement(By.xpath("//div[@id='j_idt87:lang']/div[3]/span"));
+		 WebElement elementLanguage = driver.findElement(By.xpath("//form/div/div[2]/div[2]/div//div[3]"));
 		 elementLanguage.click();
-		 
-		 WebElement elementLanguageSelect = driver.findElement(By.xpath("//li[@id='j_idt87:lang_1']"));
+		 Thread.sleep(2000);
+		WebElement elementLanguageSelect = driver.findElement(By.xpath("//div[6]/div/ul/li[2]"));
 		 elementLanguageSelect.click();
 		 
 		 Thread.sleep(2000);
 		 
 		 
 		 //Select 'Two' irrespective of the language chosen		 
-		 WebElement elementTwoSelect = driver.findElement(By.xpath("//div[@id='j_idt87:value']/div[3]/span"));
+		 WebElement elementTwoSelect = driver.findElement(By.xpath("//form/div/div[2]/div[3]//div[3]/span"));
 		 elementTwoSelect.click();
 		 
-		 WebElement elementTwo=driver.findElement(By.xpath("//li[@id='j_idt87:value_3']"));
+		 WebElement elementTwo=driver.findElement(By.xpath("//div[8]/div/ul/li[4]"));
 		 elementTwo.click();
 		 
 		 Thread.sleep(2000);
