@@ -24,7 +24,7 @@ public class LeafGroundButton {
 		driver.manage().window().maximize();
 
 		// Click and Confirm title.
-		driver.findElement(By.xpath("//button[@id='j_idt88:j_idt90']")).click();
+		driver.findElement(By.xpath("//span[text()='Click']")).click();
 		System.out.println("The title of the Page:" + driver.getTitle());
 
 		if (driver.getTitle().contains("board")) {
@@ -35,27 +35,27 @@ public class LeafGroundButton {
 		driver.navigate().back();
 
 		// Confirm if the button is disabled.
-		WebElement elementButtonDisabled = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt92']"));
+		WebElement elementButtonDisabled = driver.findElement(By.xpath("//span[text()='Disabled']"));
 		if (elementButtonDisabled.isEnabled()) {
 			System.out.println("Button is enabled");
 		} else
 			System.out.println("Button is Disabled");
 
 		// Find the position of the Submit button
-		WebElement elementButtonPosition = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt94']"));
+		WebElement elementButtonPosition = driver.findElement(By.xpath("//form/div/div[1]/div[3]/button"));
 		System.out.println("The Position of Submit Button:" + elementButtonPosition.getLocation());
 
 		// Find the Save button color
-		WebElement elementGetColor = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt96']"));
+		WebElement elementGetColor = driver.findElement(By.xpath("//form/div/div[1]/div[4]/button"));
 		System.out.println("The color of Button:" + elementGetColor.getCssValue("background-color"));
 
 		// Find the height and width of the button
-		WebElement elementGetSize = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt98']"));
+		WebElement elementGetSize = driver.findElement(By.xpath("//form/div/div[2]/div[1]/button"));
 		System.out.println("The height and width of Button:" + elementGetSize.getSize());
 		Thread.sleep(2000);
 		
 		// Mouse over and confirm the color changed
-		WebElement elementMouseOver = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt100']"));
+		WebElement elementMouseOver = driver.findElement(By.xpath("//form/div/div[2]/div[2]/button"));
 		String colorBeforeMouseOver = elementMouseOver.getCssValue("background-color");
 		Actions actions = new Actions(driver);
 		actions.moveToElement(elementMouseOver).perform();
@@ -69,11 +69,11 @@ public class LeafGroundButton {
 		Thread.sleep(2000);
 
 		// Click Image Button and Click on any hidden button
-		WebElement elementImageClick = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt102:imageBtn']"));
+		WebElement elementImageClick = driver.findElement(By.xpath("//form/div/div[2]/div[3]/div/div/button"));
 		elementImageClick.click();
 
 		
-		WebElement elementImageClick1 = driver.findElement(By.xpath("//div/img[@id='j_idt88:j_idt102:j_idt104']"));
+		WebElement elementImageClick1 = driver.findElement(By.xpath("//div[contains(@class,'overlaypanel')]/img"));
 		Thread.sleep(2000);
 
 		 //Take the screenshot
